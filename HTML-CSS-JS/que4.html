@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>localStorage & sessionStorage Example</title>
+    <title>localStorage</title>
 </head>
 
 <body>
@@ -14,19 +14,19 @@
 
     <script>
 
-        const input = document.getElementById("input1");
-        const para = document.querySelector('p');
+        let input = document.getElementById("input1");
+        let para = document.querySelector('p');
 
 
         document.getElementById("saveLocal").addEventListener("click",
             function () {
                 const message = input.value;
-                localStorage.setItem("localMsg", message);
+                localStorage.setItem("text", message);
                 para.textContent = message;
             });
 
         window.onload = function () {
-            const savedLocal = localStorage.getItem("localMsg");
+            const savedLocal = localStorage.getItem("text");
             if (savedLocal) para.textContent = "Data From Local Storage is : " + savedLocal;
 
         };
