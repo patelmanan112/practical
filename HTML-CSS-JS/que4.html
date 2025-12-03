@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>localStorage & sessionStorage Example</title>
+</head>
+
+<body>
+    <h2>Store Messages</h2>
+    <input type="text" id="input1" placeholder="Enter a message">
+    <button id="saveLocal">Save to localStorage</button>
+    <h3>Stored Messages:</h3>
+    <p></p>
+
+    <script>
+
+        const input = document.getElementById("input1");
+        const para = document.querySelector('p');
+
+
+        document.getElementById("saveLocal").addEventListener("click",
+            function () {
+                const message = input.value;
+                localStorage.setItem("localMsg", message);
+                para.textContent = message;
+            });
+
+        window.onload = function () {
+            const savedLocal = localStorage.getItem("localMsg");
+            if (savedLocal) para.textContent = "Data From Local Storage is : " + savedLocal;
+
+        };
+    </script>
+</body>
+
+</html>
